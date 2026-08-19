@@ -178,6 +178,53 @@
     font-weight:800; font-size:1rem; cursor:pointer;
   }
 
+  /* GALLERY */
+  .gallery{background:#fff;}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  }
+  .gallery-item{
+    position:relative; border-radius:14px; overflow:hidden; cursor:pointer;
+    aspect-ratio:1/1; border:1px solid var(--line); background:var(--cream2);
+  }
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .35s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.08);}
+  .gallery-item::after{
+    content:"🔍"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(59,42,26,0); font-size:1.4rem; opacity:0; transition:all .25s ease; color:#fff;
+  }
+  .gallery-item:hover::after{background:rgba(59,42,26,.35); opacity:1;}
+
+  #lightbox{
+    position:fixed; inset:0; z-index:1000; background:rgba(20,14,8,.92);
+    display:none; align-items:center; justify-content:center; padding:30px;
+    flex-direction:column;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox img{
+    max-width:90vw; max-height:80vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5);
+  }
+  #lightbox .lb-close{
+    position:absolute; top:22px; left:22px; width:44px; height:44px; border-radius:50%;
+    background:var(--honey); color:var(--brown); font-size:1.3rem; font-weight:800;
+    display:flex; align-items:center; justify-content:center; cursor:pointer; border:none;
+  }
+  #lightbox .lb-nav{
+    position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%;
+    background:rgba(255,255,255,.15); color:#fff; font-size:1.6rem; display:flex; align-items:center;
+    justify-content:center; cursor:pointer; border:none; backdrop-filter:blur(4px);
+  }
+  #lightbox .lb-prev{right:22px;}
+  #lightbox .lb-next{left:22px;}
+  #lightbox .lb-counter{color:var(--cream2); margin-top:14px; font-weight:700; font-size:.9rem;}
+
+  @media (max-width:820px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
   footer{background:var(--brown); color:rgba(255,255,255,.6); text-align:center; padding:30px 24px; font-size:.85rem;}
   footer .credit{margin-top:8px; color:rgba(255,255,255,.45); font-size:.8rem;}
 
@@ -223,7 +270,10 @@
 <header>
   <div class="nav">
     <div class="brand"><span class="dot"></span> منحل أبو عبد الرزاق</div>
-    <a href="#contact" class="nav-cta">اطلب الآن</a>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="#gallery" style="font-weight:700; font-size:.92rem; color:var(--olive-dark);">معرض الصور</a>
+      <a href="#contact" class="nav-cta">اطلب الآن</a>
+    </div>
   </div>
 </header>
 
@@ -306,137 +356,11 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="gallery" id="gallery">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">تواصل معنا</div>
-      <h2>اطلب الآن مباشرة</h2>
+      <div class="kicker">من قلب المنحل</div>
+      <h2>معرض الصور</h2>
     </div>
-    <div class="contact-grid">
-      <div>
-        <div class="phones">
-          <a href="tel:07830790441" class="phone-card"><span class="ic">📞</span> 07830790441</a>
-          <a href="tel:07709203933" class="phone-card"><span class="ic">📞</span> 07709203933</a>
-          <a href="https://wa.me/9647830790441" class="phone-card"><span class="ic">📱</span> واتساب: اطلب مباشرة</a>
-        </div>
-      </div>
-      <form id="order-form">
-        <label>الاسم</label>
-        <input type="text" id="of-name" placeholder="اسمك الكامل" required>
-        <label>رقم الهاتف</label>
-        <input type="tel" id="of-phone" placeholder="07XXXXXXXXX" required>
-        <label>العنوان</label>
-        <input type="text" id="of-address" placeholder="المحافظة / المنطقة" required>
-        <label>نوع الطلب</label>
-        <select id="of-type" required>
-          <option value="">اختر...</option>
-          <option value="عسل">عسل</option>
-          <option value="خلايا نحل">خلايا نحل</option>
-        </select>
-        <button type="submit">إرسال الطلب عبر واتساب</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 منحل أبو عبد الرزاق — عسل طبيعي من قلب الطبيعة إلى بيتك
-  <div class="credit">تم تصميم هذا الموقع برعاية عباس بركات فرحان</div>
-</footer>
-
-<script>
-(function(){
-  function playChime(){
-    try{
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      const ctx = new Ctx();
-      const notes = [660, 880, 1046.5]; // gentle rising chime
-      notes.forEach((freq, i)=>{
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq;
-        const start = ctx.currentTime + i * 0.14;
-        gain.gain.setValueAtTime(0, start);
-        gain.gain.linearRampToValueAtTime(0.18, start + 0.03);
-        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.4);
-        osc.connect(gain).connect(ctx.destination);
-        osc.start(start);
-        osc.stop(start + 0.45);
-      });
-    }catch(e){ /* audio not available, ignore */ }
-  }
-
-  function speakGreeting(){
-    try{
-      if(!('speechSynthesis' in window)) return;
-      const msg = new SpeechSynthesisUtterance('أهلاً بك في منحل أبو عبد الرزاق، عسل طبيعي مباشرة من المنحل إلى بيتك');
-      msg.lang = 'ar-SA';
-      msg.rate = 1;
-      msg.volume = 0.9;
-      const voices = window.speechSynthesis.getVoices();
-      const arVoice = voices.find(v => v.lang && v.lang.startsWith('ar'));
-      if(arVoice) msg.voice = arVoice;
-      window.speechSynthesis.speak(msg);
-    }catch(e){ /* speech not available, ignore */ }
-  }
-
-  function greet(){
-    playChime();
-    speakGreeting();
-    window.removeEventListener('click', greet);
-    window.removeEventListener('touchstart', greet);
-  }
-
-  // Browsers require a user gesture before audio can play automatically.
-  // Try immediately, and also arm a one-time fallback on first interaction.
-  window.addEventListener('load', greet);
-  window.addEventListener('click', greet, { once:true });
-  window.addEventListener('touchstart', greet, { once:true });
-
-  // Remove overlay from tab order / screen readers after it fades
-  setTimeout(function(){
-    const el = document.getElementById('welcome-overlay');
-    if(el) el.style.display = 'none';
-  }, 2300);
-})();
-
-// Order form -> WhatsApp
-(function(){
-  const form = document.getElementById('order-form');
-  if(!form) return;
-  const WHATSAPP_NUMBER = '9647830790441'; // رقم الواتساب لاستقبال الطلبات (بصيغة دولية بدون +)
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const name = document.getElementById('of-name').value.trim();
-    const phone = document.getElementById('of-phone').value.trim();
-    const address = document.getElementById('of-address').value.trim();
-    const typeSelect = document.getElementById('of-type');
-    const type = typeSelect.options[typeSelect.selectedIndex].value;
-
-    const message =
-      'طلب جديد من موقع منحل أبو عبد الرزاق' + '\n' +
-      '——————————' + '\n' +
-      'الاسم: ' + name + '\n' +
-      'رقم الهاتف: ' + phone + '\n' +
-      'العنوان: ' + address + '\n' +
-      'نوع الطلب: ' + type;
-
-    const encoded = encodeURIComponent(message);
-    const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encoded;
-
-    // Copy the message to clipboard as a backup, then open WhatsApp
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(message).catch(function(){ /* ignore clipboard errors */ });
-    }
-
-    window.open(waUrl, '_blank');
-    form.reset();
-  });
-})();
-</script>
-
-</body>
-</html>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item" data-full="data:image/jpeg;base64,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
