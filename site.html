@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منحل أبو عبد الرزاق | عسل طبيعي 100% من المنحل إلى بيتك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --honey:#E8A324;
+    --honey-dark:#C4820F;
+    --olive:#5C6E3F;
+    --olive-dark:#3F4C2C;
+    --brown:#3B2A1A;
+    --cream:#FBF3E1;
+    --cream2:#F4E6C3;
+    --line: rgba(59,42,26,.15);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Cairo', sans-serif;
+    background:var(--cream);
+    color:var(--brown);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Markazi Text', serif;
+    font-weight:700;
+  }
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+  /* honeycomb texture */
+  .comb-bg{
+    position:absolute; inset:0; z-index:0; opacity:.08;
+    background-image:
+      radial-gradient(circle at 0 0, transparent 18px, var(--brown) 18.5px, var(--brown) 19px, transparent 19.5px),
+      radial-gradient(circle at 40px 0, transparent 18px, var(--brown) 18.5px, var(--brown) 19px, transparent 19.5px);
+    background-size:80px 70px;
+    pointer-events:none;
+  }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,243,225,.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:10px; font-size:1.4rem; font-weight:800; color:var(--olive-dark);}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--honey);}
+  .nav-cta{
+    background:var(--olive); color:#fff; padding:10px 20px; border-radius:30px;
+    font-weight:700; font-size:.92rem; box-shadow:0 4px 14px rgba(92,110,63,.35);
+  }
+
+  /* HERO */
+  .hero{
+    position:relative; padding:90px 24px 70px;
+    background:linear-gradient(180deg, var(--cream2) 0%, var(--cream) 100%);
+    overflow:hidden;
+  }
+  .hero-inner{position:relative; z-index:2; max-width:820px; margin:0 auto; text-align:center;}
+  .eyebrow{
+    display:inline-block; padding:6px 16px; border:1px solid var(--honey-dark);
+    border-radius:30px; color:var(--honey-dark); font-weight:700; font-size:.85rem;
+    margin-bottom:22px; background:rgba(232,163,36,.08);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.8rem); color:var(--brown); line-height:1.25; margin-bottom:18px;
+  }
+  .hero h1 span{color:var(--honey-dark);}
+  .hero p.sub{
+    font-size:1.15rem; color:#5a4530; max-width:620px; margin:0 auto 34px; font-weight:400;
+  }
+  .cta-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    padding:15px 30px; border-radius:12px; font-weight:800; font-size:1rem;
+    display:inline-flex; align-items:center; gap:10px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--olive); color:#fff; box-shadow:0 8px 20px rgba(92,110,63,.35);}
+  .btn-outline{background:#fff; color:var(--brown); border:2px solid var(--brown);}
+
+  .drip{
+    position:absolute; top:0; left:0; right:0; height:14px;
+    background: repeating-linear-gradient(90deg, var(--honey) 0 26px, transparent 26px 40px);
+    clip-path: polygon(0 0,100% 0,100% 40%,97% 100%,94% 45%,90% 100%,86% 45%,82% 100%,78% 45%,74% 100%,70% 45%,66% 100%,62% 45%,58% 100%,54% 45%,50% 100%,46% 45%,42% 100%,38% 45%,34% 100%,30% 45%,26% 100%,22% 45%,18% 100%,14% 45%,10% 100%,6% 45%,2% 100%,0 45%);
+    opacity:.85;
+  }
+
+  /* TRUST BAR */
+  .trust-bar{
+    background:var(--olive-dark); color:#fff; padding:20px 24px;
+  }
+  .trust-bar .wrap{display:flex; flex-wrap:wrap; gap:18px; justify-content:center; text-align:center;}
+  .trust-item{display:flex; align-items:center; gap:10px; font-weight:700; font-size:.95rem;}
+  .trust-item .ic{
+    width:34px; height:34px; border-radius:50%; background:var(--honey);
+    display:flex; align-items:center; justify-content:center; color:var(--brown); font-size:1.1rem; flex-shrink:0;
+  }
+
+  section{padding:80px 24px; position:relative;}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 50px;}
+  .section-head .kicker{color:var(--honey-dark); font-weight:800; letter-spacing:.5px; font-size:.85rem;}
+  .section-head h2{font-size:clamp(1.9rem,4vw,2.6rem); color:var(--brown); margin-top:8px;}
+
+  /* TRUST PILLARS */
+  .pillars{background:#fff;}
+  .pillars-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:50px;}
+  .pillar-card{
+    background:var(--cream); border:1px solid var(--line); border-radius:18px; padding:30px 24px;
+    text-align:center;
+  }
+  .pillar-card .badge{
+    width:56px; height:56px; border-radius:50%; background:var(--honey); color:var(--brown);
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 16px;
+  }
+  .pillar-card h3{font-size:1.35rem; color:var(--olive-dark); margin-bottom:8px;}
+  .pillar-card p{font-size:.95rem; color:#5a4530;}
+
+  .pledge{
+    background:var(--brown); color:var(--cream); border-radius:20px; padding:42px 36px;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .pledge::before{
+    content:"🍯"; position:absolute; font-size:8rem; opacity:.08; left:-10px; top:-30px;
+  }
+  .pledge h3{color:var(--honey); font-size:1.6rem; margin-bottom:14px;}
+  .pledge p{font-size:1.05rem; max-width:680px; margin:0 auto; position:relative;}
+
+  /* PRODUCTS */
+  .products{background:var(--cream2);}
+  .prod-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .prod-card{
+    background:#fff; border-radius:20px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(59,42,26,.06);
+  }
+  .prod-img{
+    height:180px; display:flex; align-items:center; justify-content:center; font-size:4rem;
+  }
+  .prod-img.honey{background:linear-gradient(135deg,var(--honey),var(--honey-dark));}
+  .prod-img.hive{background:linear-gradient(135deg,var(--olive),var(--olive-dark)); color:#fff;}
+  .prod-body{padding:26px;}
+  .prod-body h3{font-size:1.5rem; color:var(--brown); margin-bottom:10px;}
+  .prod-body p{color:#5a4530; margin-bottom:16px; font-size:.97rem;}
+  .prod-guarantee{
+    display:inline-block; background:rgba(92,110,63,.1); color:var(--olive-dark);
+    padding:8px 16px; border-radius:30px; font-weight:700; font-size:.85rem;
+  }
+
+  /* CONTACT */
+  .contact{background:var(--olive-dark); color:#fff;}
+  .contact .section-head h2{color:#fff;}
+  .contact .section-head .kicker{color:var(--honey);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
+  .phones{display:flex; flex-direction:column; gap:16px;}
+  .phone-card{
+    display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.08);
+    padding:18px 22px; border-radius:14px; font-size:1.2rem; font-weight:800;
+  }
+  .phone-card .ic{
+    width:44px; height:44px; border-radius:50%; background:var(--honey); color:var(--brown);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  form{background:#fff; border-radius:18px; padding:30px; color:var(--brown);}
+  form label{display:block; font-weight:700; margin-bottom:6px; font-size:.9rem;}
+  form input, form select{
+    width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:10px;
+    margin-bottom:16px; font-family:inherit; font-size:.95rem; background:var(--cream);
+  }
+  form button{
+    width:100%; background:var(--honey-dark); color:#fff; border:none; padding:15px; border-radius:10px;
+    font-weight:800; font-size:1rem; cursor:pointer;
+  }
+
+  /* GALLERY */
+  .gallery{background:#fff;}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  }
+  .gallery-item{
+    position:relative; border-radius:14px; overflow:hidden; cursor:pointer;
+    aspect-ratio:1/1; border:1px solid var(--line); background:var(--cream2);
+  }
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .35s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.08);}
+  .gallery-item::after{
+    content:"🔍"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(59,42,26,0); font-size:1.4rem; opacity:0; transition:all .25s ease; color:#fff;
+  }
+  .gallery-item:hover::after{background:rgba(59,42,26,.35); opacity:1;}
+
+  #lightbox{
+    position:fixed; inset:0; z-index:1000; background:rgba(20,14,8,.92);
+    display:none; align-items:center; justify-content:center; padding:30px;
+    flex-direction:column;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox img{
+    max-width:90vw; max-height:80vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5);
+  }
+  #lightbox .lb-close{
+    position:absolute; top:22px; left:22px; width:44px; height:44px; border-radius:50%;
+    background:var(--honey); color:var(--brown); font-size:1.3rem; font-weight:800;
+    display:flex; align-items:center; justify-content:center; cursor:pointer; border:none;
+  }
+  #lightbox .lb-nav{
+    position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%;
+    background:rgba(255,255,255,.15); color:#fff; font-size:1.6rem; display:flex; align-items:center;
+    justify-content:center; cursor:pointer; border:none; backdrop-filter:blur(4px);
+  }
+  #lightbox .lb-prev{right:22px;}
+  #lightbox .lb-next{left:22px;}
+  #lightbox .lb-counter{color:var(--cream2); margin-top:14px; font-weight:700; font-size:.9rem;}
+
+  @media (max-width:820px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  footer{background:var(--brown); color:rgba(255,255,255,.6); text-align:center; padding:30px 24px; font-size:.85rem;}
+  footer .credit{margin-top:8px; color:rgba(255,255,255,.45); font-size:.8rem;}
+
+  /* WELCOME OVERLAY */
+  #welcome-overlay{
+    position:fixed; inset:0; z-index:999;
+    background:radial-gradient(circle at 50% 40%, var(--honey-dark) 0%, var(--brown) 75%);
+    display:flex; align-items:center; justify-content:center; flex-direction:column;
+    animation: overlayOut .6s ease forwards; animation-delay:1.6s;
+  }
+  #welcome-overlay .bee{
+    font-size:3.4rem; margin-bottom:14px;
+    animation: beeIn .6s ease;
+  }
+  #welcome-overlay h2{
+    font-family:'Markazi Text', serif; color:#fff; font-size:clamp(1.6rem,5vw,2.4rem);
+    text-align:center; animation: textIn .7s ease .15s both;
+  }
+  #welcome-overlay p{
+    color:var(--cream2); font-size:1rem; margin-top:8px; animation: textIn .7s ease .3s both;
+  }
+  @keyframes beeIn{ from{opacity:0; transform:scale(.5) translateY(10px);} to{opacity:1; transform:scale(1) translateY(0);} }
+  @keyframes textIn{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes overlayOut{ to{opacity:0; visibility:hidden; pointer-events:none;} }
+  @media (prefers-reduced-motion: reduce){
+    #welcome-overlay, #welcome-overlay .bee, #welcome-overlay h2, #welcome-overlay p{animation:none;}
+    #welcome-overlay{display:none;}
+  }
+
+  @media (max-width:820px){
+    .pillars-grid, .prod-grid, .proof-grid, .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div id="welcome-overlay" aria-hidden="true">
+  <div class="bee">🐝</div>
+  <h2>أهلاً بك في منحل أبو عبد الرزاق</h2>
+  <p>عسل طبيعي 100% مباشرة من المنحل</p>
+</div>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> منحل أبو عبد الرزاق</div>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="#gallery" style="font-weight:700; font-size:.92rem; color:var(--olive-dark);">معرض الصور</a>
+      <a href="#contact" class="nav-cta">اطلب الآن</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="comb-bg"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">🐝 مباشرة من المنحل، بلا وسطاء</span>
+    <h1>عسل طبيعي <span>100%</span><br>من المنحل إلى بيتك مباشرة</h1>
+    <p class="sub">منحل أبو عبد الرزاق لبيع أجود أنواع العسل الطبيعي وخلايا النحل المضمونة، بفحص مختبري وضمان استرجاع كامل.</p>
+    <div class="cta-row">
+      <a href="https://wa.me/9647830790441" class="btn btn-primary">📱 اطلب عبر الواتساب الآن</a>
+      <a href="tel:07830790441" class="btn btn-outline">📞 اتصل بنا: 07830790441</a>
+    </div>
+  </div>
+  <div class="drip"></div>
+</section>
+
+<div class="trust-bar">
+  <div class="wrap">
+    <div class="trust-item"><span class="ic">🔬</span> فحص مختبري مضمون</div>
+    <div class="trust-item"><span class="ic">💰</span> استرجاع الأموال في حال الإثبات عكس ذلك</div>
+    <div class="trust-item"><span class="ic">🚚</span> توصيل سريع وآمن</div>
+  </div>
+</div>
+
+<section class="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">لماذا تثق بنا</div>
+      <h2>ركائز المصداقية</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="badge">📋</div>
+        <h3>شهادات الفحص</h3>
+        <p>تقارير فحص مختبري حديثة وواضحة تثبت نسبة السكروز والنقاء في كل دفعة عسل.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="badge">🎥</div>
+        <h3>فيديوهات من قلب المنحل</h3>
+        <p>مقاطع قصيرة تُظهر أبو عبد الرزاق أثناء العمل، جني العسل، والعناية اليومية بالخلايا.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="badge">🤝</div>
+        <h3>تعهد صريح</h3>
+        <p>لا وعود فارغة؛ التزام مكتوب وواضح تجاه كل زبون يثق بنا.</p>
+      </div>
+    </div>
+    <div class="pledge">
+      <h3>تعهد الجودة</h3>
+      <p>نضمن لك نقاء العسل، وإذا أثبت أي فحص مختبري عكس ذلك، فنحن نلتزم بإعادة قيمة المنتج وكلفة الفحص كاملة.</p>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">منتجاتنا</div>
+      <h2>عسل وخلايا بضمان حقيقي</h2>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img honey">🍯</div>
+        <div class="prod-body">
+          <h3>العسل الطبيعي</h3>
+          <p>عسل صافٍ مستخرج من مناحلنا بدون أي إضافات سكرية أو معالجة حرارية.</p>
+          <span class="prod-guarantee">فحص مختبري + ضمان استرجاع</span>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img hive">🐝</div>
+        <div class="prod-body">
+          <h3>خلايا النحل</h3>
+          <p>خلايا قوية وسليمة، مجهزة بأجود سلالات النحل للتربية وإنتاج العسل.</p>
+          <span class="prod-guarantee">معاينة ميدانية قبل الشراء</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">من قلب المنحل</div>
+      <h2>معرض الصور</h2>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item" data-full="images/121168.jpg"><img src="images/121168.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121160.jpg"><img src="images/121160.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121156.jpg"><img src="images/121156.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121171.jpg"><img src="images/121171.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121154.jpg"><img src="images/121154.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121165.jpg"><img src="images/121165.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121164.jpg"><img src="images/121164.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121151.jpg"><img src="images/121151.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121163.jpg"><img src="images/121163.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121161.jpg"><img src="images/121161.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121170.jpg"><img src="images/121170.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121153.jpg"><img src="images/121153.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121155.jpg"><img src="images/121155.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121152.jpg"><img src="images/121152.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121158.jpg"><img src="images/121158.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121169.jpg"><img src="images/121169.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121162.jpg"><img src="images/121162.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121157.jpg"><img src="images/121157.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121159.jpg"><img src="images/121159.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <div class="gallery-item" data-full="images/121167.jpg"><img src="images/121167.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox">
+  <button class="lb-close" id="lb-close">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" id="lb-next">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">تواصل معنا</div>
+      <h2>اطلب الآن مباشرة</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="phones">
+          <a href="tel:07830790441" class="phone-card"><span class="ic">📞</span> 07830790441</a>
+          <a href="tel:07709203933" class="phone-card"><span class="ic">📞</span> 07709203933</a>
+          <a href="https://wa.me/9647830790441" class="phone-card"><span class="ic">📱</span> واتساب: اطلب مباشرة</a>
+        </div>
+      </div>
+      <form id="order-form">
+        <label>الاسم</label>
+        <input type="text" id="of-name" placeholder="اسمك الكامل" required>
+        <label>رقم الهاتف</label>
+        <input type="tel" id="of-phone" placeholder="07XXXXXXXXX" required>
+        <label>العنوان</label>
+        <input type="text" id="of-address" placeholder="المحافظة / المنطقة" required>
+        <label>نوع الطلب</label>
+        <select id="of-type" required>
+          <option value="">اختر...</option>
+          <option value="عسل">عسل</option>
+          <option value="خلايا نحل">خلايا نحل</option>
+        </select>
+        <button type="submit">إرسال الطلب عبر واتساب</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 منحل أبو عبد الرزاق — عسل طبيعي من قلب الطبيعة إلى بيتك
+  <div class="credit">تم تصميم هذا الموقع برعاية عباس بركات فرحان</div>
+</footer>
+
+<script>
+(function(){
+  function playChime(){
+    try{
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new Ctx();
+      const notes = [660, 880, 1046.5]; // gentle rising chime
+      notes.forEach((freq, i)=>{
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        const start = ctx.currentTime + i * 0.14;
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.18, start + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.4);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + 0.45);
+      });
+    }catch(e){ /* audio not available, ignore */ }
+  }
+
+  function speakGreeting(){
+    try{
+      if(!('speechSynthesis' in window)) return;
+      const msg = new SpeechSynthesisUtterance('أهلاً بك في منحل أبو عبد الرزاق، عسل طبيعي مباشرة من المنحل إلى بيتك');
+      msg.lang = 'ar-SA';
+      msg.rate = 1;
+      msg.volume = 0.9;
+      const voices = window.speechSynthesis.getVoices();
+      const arVoice = voices.find(v => v.lang && v.lang.startsWith('ar'));
+      if(arVoice) msg.voice = arVoice;
+      window.speechSynthesis.speak(msg);
+    }catch(e){ /* speech not available, ignore */ }
+  }
+
+  function greet(){
+    playChime();
+    speakGreeting();
+    window.removeEventListener('click', greet);
+    window.removeEventListener('touchstart', greet);
+  }
+
+  // Browsers require a user gesture before audio can play automatically.
+  // Try immediately, and also arm a one-time fallback on first interaction.
+  window.addEventListener('load', greet);
+  window.addEventListener('click', greet, { once:true });
+  window.addEventListener('touchstart', greet, { once:true });
+
+  // Remove overlay from tab order / screen readers after it fades
+  setTimeout(function(){
+    const el = document.getElementById('welcome-overlay');
+    if(el) el.style.display = 'none';
+  }, 2300);
+})();
+
+// Gallery lightbox
+(function(){
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  if(!items.length) return;
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCounter = document.getElementById('lb-counter');
+  let current = 0;
+
+  function open(index){
+    current = index;
+    show();
+    lightbox.classList.add('open');
+  }
+  function show(){
+    const src = items[current].getAttribute('data-full');
+    lbImg.src = src;
+    lbCounter.textContent = (current + 1) + ' / ' + items.length;
+  }
+  function close(){ lightbox.classList.remove('open'); lbImg.src=''; }
+  function next(){ current = (current + 1) % items.length; show(); }
+  function prev(){ current = (current - 1 + items.length) % items.length; show(); }
+
+  items.forEach((el, i) => el.addEventListener('click', () => open(i)));
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-next').addEventListener('click', next);
+  document.getElementById('lb-prev').addEventListener('click', prev);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
+  window.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+})();
+
+// Order form -> WhatsApp
+(function(){
+  const form = document.getElementById('order-form');
+  if(!form) return;
+  const WHATSAPP_NUMBER = '9647830790441'; // رقم الواتساب لاستقبال الطلبات (بصيغة دولية بدون +)
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('of-name').value.trim();
+    const phone = document.getElementById('of-phone').value.trim();
+    const address = document.getElementById('of-address').value.trim();
+    const typeSelect = document.getElementById('of-type');
+    const type = typeSelect.options[typeSelect.selectedIndex].value;
+
+    const message =
+      'طلب جديد من موقع منحل أبو عبد الرزاق' + '\n' +
+      '——————————' + '\n' +
+      'الاسم: ' + name + '\n' +
+      'رقم الهاتف: ' + phone + '\n' +
+      'العنوان: ' + address + '\n' +
+      'نوع الطلب: ' + type;
+
+    const encoded = encodeURIComponent(message);
+    const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encoded;
+
+    // Copy the message to clipboard as a backup, then open WhatsApp
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(message).catch(function(){ /* ignore clipboard errors */ });
+    }
+
+    window.open(waUrl, '_blank');
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>
