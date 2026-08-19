@@ -1,835 +1,262 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>منحل أبو عبد الرزاق | عسل طبيعي 100% من المنحل إلى بيتك</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --honey:#E8A324;
-    --honey-dark:#C4820F;
-    --olive:#5C6E3F;
-    --olive-dark:#3F4C2C;
-    --brown:#3B2A1A;
-    --cream:#FBF3E1;
-    --cream2:#F4E6C3;
-    --line: rgba(59,42,26,.15);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Cairo', sans-serif;
-    background:var(--cream);
-    color:var(--brown);
-    line-height:1.7;
-    overflow-x:hidden;
-  }
-  h1,h2,h3, .display{
-    font-family:'Markazi Text', serif;
-    font-weight:700;
-  }
-  a{text-decoration:none; color:inherit;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
-
-  .comb-bg{
-    position:absolute; inset:0; z-index:0; opacity:.08;
-    background-image:
-      radial-gradient(circle at 0 0, transparent 18px, var(--brown) 18.5px, var(--brown) 19px, transparent 19.5px),
-      radial-gradient(circle at 40px 0, transparent 18px, var(--brown) 18.5px, var(--brown) 19px, transparent 19.5px);
-    background-size:80px 70px;
-    pointer-events:none;
-  }
-
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(251,243,225,.92);
-    backdrop-filter: blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
-  .brand{display:flex; align-items:center; gap:10px; font-size:1.4rem; font-weight:800; color:var(--olive-dark);}
-  .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--honey);}
-  .nav-cta{
-    background:var(--olive); color:#fff; padding:10px 20px; border-radius:30px;
-    font-weight:700; font-size:.92rem; box-shadow:0 4px 14px rgba(92,110,63,.35);
-  }
-  .admin-btn {
-    font-weight:700; font-size:.85rem; color:var(--brown); 
-    background:var(--cream2); padding:6px 14px; border-radius:20px; 
-    border:1px solid var(--line); cursor:pointer; transition:0.2s;
-  }
-  .admin-btn:hover { background:var(--honey); color:#fff; border-color:var(--honey); }
-
-  .hero{
-    position:relative; padding:90px 24px 70px;
-    background:linear-gradient(180deg, var(--cream2) 0%, var(--cream) 100%);
-    overflow:hidden;
-  }
-  .hero-inner{position:relative; z-index:2; max-width:820px; margin:0 auto; text-align:center;}
-  .eyebrow{
-    display:inline-block; padding:6px 16px; border:1px solid var(--honey-dark);
-    border-radius:30px; color:var(--honey-dark); font-weight:700; font-size:.85rem;
-    margin-bottom:22px; background:rgba(232,163,36,.08);
-  }
-  .hero h1{
-    font-size:clamp(2.4rem, 6vw, 3.8rem); color:var(--brown); line-height:1.25; margin-bottom:18px;
-  }
-  .hero h1 span{color:var(--honey-dark);}
-  .hero p.sub{
-    font-size:1.15rem; color:#5a4530; max-width:620px; margin:0 auto 34px; font-weight:400;
-  }
-  .cta-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
-  .btn{
-    padding:15px 30px; border-radius:12px; font-weight:800; font-size:1rem;
-    display:inline-flex; align-items:center; gap:10px; transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--olive); color:#fff; box-shadow:0 8px 20px rgba(92,110,63,.35);}
-  .btn-outline{background:#fff; color:var(--brown); border:2px solid var(--brown);}
-
-  .drip{
-    position:absolute; top:0; left:0; right:0; height:14px;
-    background: repeating-linear-gradient(90deg, var(--honey) 0 26px, transparent 26px 40px);
-    clip-path: polygon(0 0,100% 0,100% 40%,97% 100%,94% 45%,90% 100%,86% 45%,82% 100%,78% 45%,74% 100%,70% 45%,66% 100%,62% 45%,58% 100%,54% 45%,50% 100%,46% 45%,42% 100%,38% 45%,34% 100%,30% 45%,26% 100%,22% 45%,18% 100%,14% 45%,10% 100%,6% 45%,2% 100%,0 45%);
-    opacity:.85;
-  }
-
-  .trust-bar{
-    background:var(--olive-dark); color:#fff; padding:20px 24px;
-  }
-  .trust-bar .wrap{display:flex; flex-wrap:wrap; gap:18px; justify-content:center; text-align:center;}
-  .trust-item{display:flex; align-items:center; gap:10px; font-weight:700; font-size:.95rem;}
-  .trust-item .ic{
-    width:34px; height:34px; border-radius:50%; background:var(--honey);
-    display:flex; align-items:center; justify-content:center; color:var(--brown); font-size:1.1rem; flex-shrink:0;
-  }
-
-  section{padding:80px 24px; position:relative;}
-  .section-head{text-align:center; max-width:640px; margin:0 auto 50px;}
-  .section-head .kicker{color:var(--honey-dark); font-weight:800; letter-spacing:.5px; font-size:.85rem;}
-  .section-head h2{font-size:clamp(1.9rem,4vw,2.6rem); color:var(--brown); margin-top:8px;}
-
-  .pillars{background:#fff;}
-  .pillars-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:50px;}
-  .pillar-card{
-    background:var(--cream); border:1px solid var(--line); border-radius:18px; padding:30px 24px;
-    text-align:center;
-  }
-  .pillar-card .badge{
-    width:56px; height:56px; border-radius:50%; background:var(--honey); color:var(--brown);
-    display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 16px;
-  }
-  .pillar-card h3{font-size:1.35rem; color:var(--olive-dark); margin-bottom:8px;}
-  .pillar-card p{font-size:.95rem; color:#5a4530;}
-
-  .pledge{
-    background:var(--brown); color:var(--cream); border-radius:20px; padding:42px 36px;
-    text-align:center; position:relative; overflow:hidden;
-  }
-  .pledge::before{
-    content:"🍯"; position:absolute; font-size:8rem; opacity:.08; left:-10px; top:-30px;
-  }
-  .pledge h3{color:var(--honey); font-size:1.6rem; margin-bottom:14px;}
-  .pledge p{font-size:1.05rem; max-width:680px; margin:0 auto; position:relative;}
-
-  .products{background:var(--cream2);}
-  .prod-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
-  .prod-card{
-    background:#fff; border-radius:20px; overflow:hidden; border:1px solid var(--line);
-    box-shadow:0 10px 30px rgba(59,42,26,.06);
-  }
-  .prod-img{
-    height:180px; display:flex; align-items:center; justify-content:center; font-size:4rem;
-  }
-  .prod-img.honey{background:linear-gradient(135deg,var(--honey),var(--honey-dark));}
-  .prod-img.hive{background:linear-gradient(135deg,var(--olive),var(--olive-dark)); color:#fff;}
-  .prod-body{padding:26px;}
-  .prod-body h3{font-size:1.5rem; color:var(--brown); margin-bottom:10px;}
-  .prod-body p{color:#5a4530; margin-bottom:16px; font-size:.97rem;}
-  .prod-guarantee{
-    display:inline-block; background:rgba(92,110,63,.1); color:var(--olive-dark);
-    padding:8px 16px; border-radius:30px; font-weight:700; font-size:.85rem;
-  }
-
-  .contact{background:var(--olive-dark); color:#fff;}
-  .contact .section-head h2{color:#fff;}
-  .contact .section-head .kicker{color:var(--honey);}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
-  .phones{display:flex; flex-direction:column; gap:16px;}
-  .phone-card{
-    display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.08);
-    padding:18px 22px; border-radius:14px; font-size:1.2rem; font-weight:800;
-  }
-  .phone-card .ic{
-    width:44px; height:44px; border-radius:50%; background:var(--honey); color:var(--brown);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  form{background:#fff; border-radius:18px; padding:30px; color:var(--brown);}
-  form label{display:block; font-weight:700; margin-bottom:6px; font-size:.9rem;}
-  form input, form select{
-    width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:10px;
-    margin-bottom:16px; font-family:inherit; font-size:.95rem; background:var(--cream);
-  }
-  form button{
-    width:100%; background:var(--honey-dark); color:#fff; border:none; padding:15px; border-radius:10px;
-    font-weight:800; font-size:1rem; cursor:pointer;
-  }
-
-  .gallery{background:#fff;}
-  .gallery-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
-  }
-  .gallery-item{
-    position:relative; border-radius:14px; overflow:hidden; cursor:pointer;
-    aspect-ratio:1/1; border:1px solid var(--line); background:var(--cream2);
-  }
-  .gallery-item img{
-    width:100%; height:100%; object-fit:cover; display:block;
-    transition:transform .35s ease;
-  }
-  .gallery-item:hover img{transform:scale(1.08);}
-  .gallery-item::after{
-    content:"🔍"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    background:rgba(59,42,26,0); font-size:1.4rem; opacity:0; transition:all .25s ease; color:#fff;
-  }
-  .gallery-item:hover::after{background:rgba(59,42,26,.35); opacity:1;}
-
-  .delete-btn-overlay {
-    position: absolute; top: 8px; right: 8px; z-index: 10;
-    background: #c9302c; color: #fff; border: none; border-radius: 50%;
-    width: 32px; height: 32px; font-size: 0.9rem; font-weight: bold;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s;
-  }
-  .delete-btn-overlay:hover { transform: scale(1.15); }
-
-  #lightbox{
-    position:fixed; inset:0; z-index:1000; background:rgba(20,14,8,.92);
-    display:none; align-items:center; justify-content:center; padding:30px;
-    flex-direction:column;
-  }
-  #lightbox.open{display:flex;}
-  #lightbox img{
-    max-width:90vw; max-height:80vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5);
-  }
-  #lightbox .lb-close{
-    position:absolute; top:22px; left:22px; width:44px; height:44px; border-radius:50%;
-    background:var(--honey); color:var(--brown); font-size:1.3rem; font-weight:800;
-    display:flex; align-items:center; justify-content:center; cursor:pointer; border:none;
-  }
-  #lightbox .lb-nav{
-    position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%;
-    background:rgba(255,255,255,.15); color:#fff; font-size:1.6rem; display:flex; align-items:center;
-    justify-content:center; cursor:pointer; border:none; backdrop-filter:blur(4px);
-  }
-  #lightbox .lb-prev{right:22px;}
-  #lightbox .lb-next{left:22px;}
-
-  @media (max-width:820px){
-    .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  }
-
-  footer{background:var(--brown); color:rgba(255,255,255,.6); text-align:center; padding:30px 24px; font-size:.85rem;}
-  footer .credit{margin-top:8px; color:rgba(255,255,255,.45); font-size:.8rem;}
-
-  #welcome-overlay{
-    position:fixed; inset:0; z-index:999;
-    background:radial-gradient(circle at 50% 40%, var(--honey-dark) 0%, var(--brown) 75%);
-    display:flex; align-items:center; justify-content:center; flex-direction:column;
-    animation: overlayOut .6s ease forwards; animation-delay:1.6s;
-  }
-  #welcome-overlay .bee{
-    font-size:3.4rem; margin-bottom:14px;
-    animation: beeIn .6s ease;
-  }
-  #welcome-overlay h2{
-    font-family:'Markazi Text', serif; color:#fff; font-size:clamp(1.6rem,5vw,2.4rem);
-    text-align:center; animation: textIn .7s ease .15s both;
-  }
-  #welcome-overlay p{
-    color:var(--cream2); font-size:1rem; margin-top:8px; animation: textIn .7s ease .3s both;
-  }
-  @keyframes beeIn{ from{opacity:0; transform:scale(.5) translateY(10px);} to{opacity:1; transform:scale(1) translateY(0);} }
-  @keyframes textIn{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
-  @keyframes overlayOut{ to{opacity:0; visibility:hidden; pointer-events:none;} }
-
-  @media (max-width:820px){
-    .pillars-grid, .prod-grid, .contact-grid{grid-template-columns:1fr;}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض المناحل</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto 20px;
+    }
+    .admin-btn {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(231, 76, 60, 0.9);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .modal-content h3 { margin-top: 0; }
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .modal-content button {
+      width: 100%;
+      padding: 10px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-<div id="welcome-overlay" aria-hidden="true">
-  <div class="bee">🐝</div>
-  <h2>أهلاً بك في منحل أبو عبد الرزاق</h2>
-  <p>عسل طبيعي 100% مباشرة من المنحل</p>
-</div>
+  <div class="header">
+    <h2>معرض صور المناحل</h2>
+    <button class="admin-btn" onclick="openAdminModal()">إدارة المنحل 🍯</button>
+  </div>
 
-<header>
-  <div class="nav">
-    <div class="brand"><span class="dot"></span> منحل أبو عبد الرزاق</div>
-    <div style="display:flex; align-items:center; gap:18px;">
-      <a href="#gallery" style="font-weight:700; font-size:.92rem; color:var(--olive-dark);">معرض الصور</a>
-      <a href="#contact" class="nav-cta">اطلب الآن</a>
-      <a onclick="toggleAdminModal()" class="admin-btn">⚙️ لوحة التحكم</a>
+  <div class="gallery" id="gallery">
+    <p>جاري تحميل الصور...</p>
+  </div>
+
+  <!-- نافذة تسجيل الدخول -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <h3>تسجيل دخول الأدمن</h3>
+      <input type="text" id="username" placeholder="اسم المستخدم">
+      <input type="password" id="password" placeholder="كلمة المرور">
+      <button onclick="login()">دخول</button>
     </div>
   </div>
-</header>
 
-<section class="hero">
-  <div class="comb-bg"></div>
-  <div class="hero-inner">
-    <span class="eyebrow">🐝 مباشرة من المنحل، بلا وسطاء</span>
-    <h1>عسل طبيعي <span>100%</span><br>من المنحل إلى بيتك مباشرة</h1>
-    <p class="sub">منحل أبو عبد الرزاق لبيع أجود أنواع العسل الطبيعي وخلايا النحل المضمونة، بفحص مختبري وضمان استرجاع كامل.</p>
-    <div class="cta-row">
-      <a href="https://wa.me/9647830790441" class="btn btn-primary">📱 اطلب عبر الواتساب الآن</a>
-      <a href="tel:07830790441" class="btn btn-outline">📞 اتصل بنا: 07830790441</a>
+  <!-- نافذة لوحة التحكم بالرفع -->
+  <div class="modal" id="adminPanelModal">
+    <div class="modal-content">
+      <h3>إدارة الصور</h3>
+      <p>اختيار صورة لرفعها للمعرض:</p>
+      <input type="file" id="fileInput" accept="image/*" multiple>
+      <button onclick="uploadImages()">رفع الصور</button>
+      <button onclick="logout()" style="background:#7f8c8d; margin-top:10px;">خروج</button>
     </div>
   </div>
-  <div class="drip"></div>
-</section>
 
-<div class="trust-bar">
-  <div class="wrap">
-    <div class="trust-item"><span class="ic">🔬</span> فحص مختبري مضمون</div>
-    <div class="trust-item"><span class="ic">💰</span> استرجاع الأموال في حال الإثبات عكس ذلك</div>
-    <div class="trust-item"><span class="ic">🚚</span> توصيل سريع وآمن</div>
-  </div>
-</div>
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2Fk2jZ6MEzCCVx_zoYlRsR6c3HnbL0ZUEYobGrsvfskIojp2TfFCuJWu0m3A0iNeQ/exec";
+    let currentUser = "";
+    let currentPass = "";
 
-<section class="pillars">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">لماذا تثق بنا</div>
-      <h2>ركائز المصداقية</h2>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="badge">📋</div>
-        <h3>شهادات الفحص</h3>
-        <p>تقارير فحص مختبري حديثة وواضحة تثبت نسبة السكروز والنقاء في كل دفعة عسل.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="badge">🎥</div>
-        <h3>فيديوهات من قلب المنحل</h3>
-        <p>مقاطع قصيرة تُظهر أبو عبد الرزاق أثناء العمل، جني العسل، والعناية اليومية بالخلايا.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="badge">🤝</div>
-        <h3>تعهد صريح</h3>
-        <p>لا وعود فارغة؛ التزام مكتوب وواضح تجاه كل زبون يثق بنا.</p>
-      </div>
-    </div>
-    <div class="pledge">
-      <h3>تعهد الجودة</h3>
-      <p>نضمن لك نقاء العسل، وإذا أثبت أي فحص مختبري عكس ذلك، فنحن نلتزم بإعادة قيمة المنتج وكلفة الفحص كاملة.</p>
-    </div>
-  </div>
-</section>
+    // جلب الصور عند فتح الصفحة
+    async function loadImages() {
+      try {
+        const res = await fetch(SCRIPT_URL);
+        const data = await res.json();
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
 
-<section class="products">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">منتجاتنا</div>
-      <h2>عسل وخلايا بضمان حقيقي</h2>
-    </div>
-    <div class="prod-grid">
-      <div class="prod-card">
-        <div class="prod-img honey">🍯</div>
-        <div class="prod-body">
-          <h3>العسل الطبيعي</h3>
-          <p>عسل صافٍ مستخرج من مناحلنا بدون أي إضافات سكرية أو معالجة حرارية.</p>
-          <span class="prod-guarantee">فحص مختبري + ضمان استرجاع</span>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img hive">🐝</div>
-        <div class="prod-body">
-          <h3>خلايا النحل</h3>
-          <p>خلايا قوية وسليمة، مجهزة بأجود سلالات النحل للتربية وإنتاج العسل.</p>
-          <span class="prod-guarantee">معاينة ميدانية قبل الشراء</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        if (data.images && data.images.length > 0) {
+          data.images.forEach(img => {
+            const item = document.createElement("div");
+            item.className = "gallery-item";
+            let deleteBtn = "";
+            
+            if (currentUser && currentPass) {
+              deleteBtn = `<button class="delete-btn" onclick="deleteImage('${img.id}')">✕</button>`;
+            }
 
-<section class="gallery" id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">من قلب المنحل</div>
-      <h2>معرض الصور</h2>
-    </div>
-    <div class="gallery-grid" id="gallery-grid">
-      <p id="loading-msg" style="grid-column: 1 / -1; text-align: center; color: var(--honey-dark); font-weight: bold; font-size: 1.1rem;">جاري تحميل صور المنحل...</p>
-    </div>
-  </div>
-</section>
-
-<div id="lightbox">
-  <button class="lb-close" id="lb-close">✕</button>
-  <button class="lb-nav lb-prev" id="lb-prev">‹</button>
-  <img id="lb-img" src="" alt="">
-  <button class="lb-nav lb-next" id="lb-next">›</button>
-</div>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">تواصل معنا</div>
-      <h2>اطلب الآن مباشرة</h2>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <div class="phones">
-          <a href="tel:07830790441" class="phone-card"><span class="ic">📞</span> 07830790441</a>
-          <a href="tel:07709203933" class="phone-card"><span class="ic">📞</span> 07709203933</a>
-          <a href="https://wa.me/9647830790441" class="phone-card"><span class="ic">📱</span> واتساب: اطلب مباشرة</a>
-        </div>
-      </div>
-      <form id="order-form">
-        <label>الاسم</label>
-        <input type="text" id="of-name" placeholder="اسمك الكامل" required>
-        <label>رقم الهاتف</label>
-        <input type="tel" id="of-phone" placeholder="07XXXXXXXXX" required>
-        <label>العنوان</label>
-        <input type="text" id="of-address" placeholder="المحافظة / المنطقة" required>
-        <label>نوع الطلب</label>
-        <select id="of-type" required>
-          <option value="">اختر...</option>
-          <option value="عسل">عسل</option>
-          <option value="خلايا نحل">خلايا نحل</option>
-        </select>
-        <button type="submit">إرسال الطلب عبر واتساب</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 منحل أبو عبد الرزاق — عسل طبيعي من قلب الطبيعة إلى بيتك
-  <div class="credit">تم تصميم هذا الموقع برعاية عباس بركات فرحان</div>
-</footer>
-
-<div id="admin-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1001; align-items:center; justify-content:center; padding:20px; backdrop-filter: blur(4px);">
-  <div style="background:#fff; padding:30px; border-radius:18px; max-width:480px; width:100%; position:relative; direction:rtl; box-shadow:0 15px 40px rgba(0,0,0,0.2); max-height:90vh; overflow-y:auto;">
-    <button onclick="toggleAdminModal()" style="position:absolute; left:15px; top:15px; border:none; background:none; font-size:1.3rem; cursor:pointer; color:var(--brown);">✕</button>
-    <h3 style="margin-bottom:20px; color:var(--olive-dark); font-family:'Markazi Text', serif; font-size:1.8rem; text-align:center;">إدارة المنحل</h3>
-    
-    <div id="login-form">
-      <input type="text" id="admin-user" placeholder="اسم المستخدم" style="width:100%; padding:12px; margin-bottom:12px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:1rem; background:var(--cream);">
-      <input type="password" id="admin-pass" placeholder="كلمة المرور" style="width:100%; padding:12px; margin-bottom:18px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:1rem; background:var(--cream);">
-      <button onclick="loginAdmin()" id="btn-login-submit" style="width:100%; background:var(--olive); color:#fff; padding:12px; border:none; border-radius:10px; font-weight:800; font-size:1.05rem; cursor:pointer;">دخول</button>
-    </div>
-
-    <div id="upload-panel" style="display:none; text-align:center;">
-      <p style="margin-bottom:14px; color:var(--brown); font-weight:600;">أهلاً بك، يمكنك اختيار صورة أو عدة صور لرفعها للمعرض دفعة واحدة 🍯</p>
-      
-      <input type="file" id="image-input" accept="image/*" multiple style="margin-bottom:12px; width:100%; padding:10px; border:1px dashed var(--honey-dark); border-radius:10px; background:var(--cream);">
-      
-      <button onclick="uploadToDrive()" id="upload-btn" style="width:100%; background:var(--honey-dark); color:#fff; padding:12px; border:none; border-radius:10px; font-weight:800; font-size:1.05rem; cursor:pointer; margin-bottom:15px;">رفع الصور المختارة</button>
-      
-      <hr style="margin:20px 0; border:0; border-top:1px solid var(--line);">
-      
-      <p style="margin-bottom:10px; font-weight:bold; color:var(--olive-dark);">إدارة الصور الحالية (حذف):</p>
-      <div id="admin-image-list" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-bottom:20px; max-height:180px; overflow-y:auto; padding:5px; border:1px solid var(--line); border-radius:10px;">
-        <p style="grid-column: 1 / -1; font-size:0.85rem; color:#888;">جاري تحميل الصور...</p>
-      </div>
-
-      <button onclick="logoutAdmin()" style="width:100%; background:transparent; color:#c9302c; padding:8px; border:1px solid #c9302c; border-radius:10px; font-weight:700; cursor:pointer;">خروج من لوحة التحكم</button>
-    </div>
-  </div>
-</div>
-
-<script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwJV3gqincJnDwudGhJzlq8uxjDyCNBRCCeaPONcAGaIGgAHdcXO3vE68s-hWuwPiey/exec";
-
-let savedUser = "";
-let savedPass = "";
-let globalImagesData = [];
-let isLoggedIn = false;
-
-function toggleAdminModal() {
-  const modal = document.getElementById('admin-modal');
-  modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-}
-
-async function loginAdmin() {
-  const user = document.getElementById('admin-user').value.trim();
-  const pass = document.getElementById('admin-pass').value.trim();
-
-  if (!user || !pass) return alert("يرجى إدخال اسم المستخدم وكلمة المرور");
-
-  const btn = document.getElementById('btn-login-submit');
-  btn.innerText = "جاري التحقق... ⏳";
-  btn.disabled = true;
-
-  try {
-    const res = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({
-        action: 'login',
-        username: user,
-        password: pass
-      })
-    });
-    const data = await res.json();
-
-    if (data.status === "success") {
-      savedUser = user;
-      savedPass = pass;
-      isLoggedIn = true;
-
-      document.getElementById('login-form').style.display = 'none';
-      document.getElementById('upload-panel').style.display = 'block';
-
-      renderAdminImageList();
-      renderMainGallery();
-    } else {
-      alert("بيانات الدخول غير صحيحة: " + (data.message || "اسم المستخدم أو كلمة المرور خطأ"));
+            item.innerHTML = `
+              <img src="${img.url}" alt="صورة المنحل">
+              ${deleteBtn}
+            `;
+            gallery.appendChild(item);
+          });
+        } else {
+          gallery.innerHTML = "<p>لا توجد صور حالياً في المعرض.</p>";
+        }
+      } catch (err) {
+        alert("حدث خطأ أثناء تحميل الصور");
+      }
     }
-  } catch (err) {
-    alert("حدث خطأ أثناء الاتصال بالخادم للتحقق من البيانات: " + err);
-  } finally {
-    btn.innerText = "دخول";
-    btn.disabled = false;
-  }
-}
 
-function logoutAdmin() {
-  savedUser = "";
-  savedPass = "";
-  isLoggedIn = false;
-  document.getElementById('admin-user').value = "";
-  document.getElementById('admin-pass').value = "";
-  document.getElementById('login-form').style.display = 'block';
-  document.getElementById('upload-panel').style.display = 'none';
-  renderMainGallery();
-}
+    function openAdminModal() {
+      if (currentUser && currentPass) {
+        document.getElementById("adminPanelModal").style.display = "flex";
+      } else {
+        document.getElementById("loginModal").style.display = "flex";
+      }
+    }
 
-function readFileAsBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(',')[1]);
-    reader.onerror = error => reject(error);
-    reader.readAsDataURL(file);
-  });
-}
-
-async function uploadToDrive() {
-  const fileInput = document.getElementById('image-input');
-  const files = fileInput.files;
-
-  if (!files || files.length === 0) return alert("يرجى اختيار صورة واحدة على الأقل!");
-
-  const btn = document.getElementById('upload-btn');
-  btn.disabled = true;
-
-  let successCount = 0;
-  let failCount = 0;
-
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-    btn.innerText = `جاري رفع الصورة (${i + 1} من ${files.length})... ⏳`;
-
-    try {
-      const base64Data = await readFileAsBase64(file);
-      const payload = {
-        action: 'upload',
-        username: savedUser,
-        password: savedPass,
-        fileName: file.name,
-        mimeType: file.type,
-        base64: base64Data
-      };
+    async function login() {
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
 
       const res = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
+        method: "POST",
+        body: JSON.stringify({ action: "login", username: u, password: p })
       });
-      const data = await res.json();
+      const result = await res.json();
 
-      if (data.status === "success") {
-        successCount++;
+      if (result.status === "success") {
+        currentUser = u;
+        currentPass = p;
+        document.getElementById("loginModal").style.display = "none";
+        document.getElementById("adminPanelModal").style.display = "flex";
+        loadImages();
       } else {
-        failCount++;
+        alert("بيانات الدخول غير صحيحة!");
       }
-    } catch (err) {
-      console.error(err);
-      failCount++;
     }
-  }
 
-  alert(`تم الانتهاء:\n- الصور المرفوعة بنجاح: ${successCount}\n- الصور الفاشلة: ${failCount}`);
-  btn.innerText = "رفع الصور المختارة";
-  btn.disabled = false;
-  fileInput.value = "";
-  loadDriveGallery();
-}
-
-function deleteImage(imgObj) {
-  if (!confirm("هل أنت تأكد من رغبتك في حذف هذه الصورة؟")) return;
-
-  const payload = {
-    action: "delete",
-    id: imgObj.id || "",
-    url: imgObj.url || "",
-    username: savedUser,
-    password: savedPass
-  };
-
-  fetch(SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(payload)
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.status === "success") {
-      alert("تم حذف الصورة بنجاح!");
-      loadDriveGallery();
-    } else {
-      alert("فشل الحذف: " + (data.message || "تأكد من صلاحيات الخادم"));
+    function logout() {
+      currentUser = "";
+      currentPass = "";
+      document.getElementById("adminPanelModal").style.display = "none";
+      loadImages();
     }
-  })
-  .catch(err => {
-    alert("حدث خطأ أثناء الاتصال بالخادم عند الحذف: " + err);
-  });
-}
 
-function renderAdminImageList() {
-  const container = document.getElementById('admin-image-list');
-  if (!container) return;
+    async function uploadImages() {
+      const files = document.getElementById("fileInput").files;
+      if (files.length === 0) return alert("يرجى اختيار صورة أولاً");
 
-  if (!globalImagesData || globalImagesData.length === 0) {
-    container.innerHTML = '<p style="grid-column:1/-1; font-size:0.85rem; color:#888;">لا توجد صور حالياً</p>';
-    return;
-  }
-
-  container.innerHTML = "";
-  globalImagesData.forEach((img) => {
-    const box = document.createElement('div');
-    box.style.cssText = "position:relative; aspect-ratio:1/1; border-radius:8px; overflow:hidden; border:1px solid #ccc;";
-
-    const imgEl = document.createElement('img');
-    imgEl.src = img.url;
-    imgEl.style.cssText = "width:100%; height:100%; object-fit:cover;";
-
-    const delBtn = document.createElement('button');
-    delBtn.style.cssText = "position:absolute; top:3px; right:3px; background:#c9302c; color:#fff; border:none; border-radius:50%; width:22px; height:22px; font-size:0.75rem; cursor:pointer;";
-    delBtn.title = "حذف الصورة";
-    delBtn.innerText = "✕";
-    delBtn.onclick = () => deleteImage(img);
-
-    box.appendChild(imgEl);
-    box.appendChild(delBtn);
-    container.appendChild(box);
-  });
-}
-
-function renderMainGallery() {
-  const grid = document.getElementById('gallery-grid');
-  const loadingMsg = document.getElementById('loading-msg');
-  if (loadingMsg) loadingMsg.remove();
-
-  grid.innerHTML = "";
-
-  if (globalImagesData && globalImagesData.length > 0) {
-    globalImagesData.forEach((img) => {
-      const newItem = document.createElement('div');
-      newItem.className = 'gallery-item';
-      newItem.setAttribute('data-full', img.url);
-      newItem.innerHTML = `<img src="${img.url}" alt="منحل أبو عبد الرزاق" loading="lazy">`;
-
-      if (isLoggedIn) {
-        const delBtn = document.createElement('button');
-        delBtn.className = 'delete-btn-overlay';
-        delBtn.innerHTML = '🗑️';
-        delBtn.title = 'حذف الصورة';
-        delBtn.onclick = (e) => {
-          e.stopPropagation();
-          deleteImage(img);
+      for (let file of files) {
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+          const base64 = e.target.result.split(',')[1];
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              action: "upload",
+              username: currentUser,
+              password: currentPass,
+              fileName: file.name,
+              mimeType: file.type,
+              base64: base64
+            })
+          });
+          loadImages();
         };
-        newItem.appendChild(delBtn);
+        reader.readAsDataURL(file);
       }
-
-      newItem.addEventListener('click', () => {
-        const lbImg = document.getElementById('lb-img');
-        const lightbox = document.getElementById('lightbox');
-        if (lbImg && lightbox) {
-          lbImg.src = img.url;
-          lightbox.classList.add('open');
-        }
-      });
-
-      grid.appendChild(newItem);
-    });
-
-    initDynamicLightbox();
-  } else {
-    grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #5a4530;">لم يتم رفع أي صور حتى الآن. سيتم عرض الصور هنا فور رفعها من لوحة التحكم.</p>';
-  }
-}
-
-function loadDriveGallery() {
-  fetch(SCRIPT_URL)
-    .then(res => res.json())
-    .then(data => {
-      if (data.status === "success" && data.images) {
-        globalImagesData = data.images;
-      } else {
-        globalImagesData = [];
-      }
-      renderMainGallery();
-      if (isLoggedIn) renderAdminImageList();
-    })
-    .catch(err => {
-      const loadingMsg = document.getElementById('loading-msg');
-      if (loadingMsg) {
-         loadingMsg.innerText = "حدث خطأ أثناء جلب الصور. يرجى المحاولة لاحقاً.";
-         loadingMsg.style.color = "#c9302c";
-      }
-      console.log("خطأ في جلب الصور:", err);
-    });
-}
-
-window.addEventListener('DOMContentLoaded', loadDriveGallery);
-
-(function(){
-  function playChime(){
-    try{
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      const ctx = new Ctx();
-      const notes = [660, 880, 1046.5];
-      notes.forEach((freq, i)=>{
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq;
-        const start = ctx.currentTime + i * 0.14;
-        gain.gain.setValueAtTime(0, start);
-        gain.gain.linearRampToValueAtTime(0.18, start + 0.03);
-        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.4);
-        osc.connect(gain).connect(ctx.destination);
-        osc.start(start);
-        osc.stop(start + 0.45);
-      });
-    }catch(e){ }
-  }
-
-  function speakGreeting(){
-    try{
-      if(!('speechSynthesis' in window)) return;
-      const msg = new SpeechSynthesisUtterance('أهلاً بك في منحل أبو عبد الرزاق، عسل طبيعي مباشرة من المنحل إلى بيتك');
-      msg.lang = 'ar-SA';
-      msg.rate = 1;
-      msg.volume = 0.9;
-      const voices = window.speechSynthesis.getVoices();
-      const arVoice = voices.find(v => v.lang && v.lang.startsWith('ar'));
-      if(arVoice) msg.voice = arVoice;
-      window.speechSynthesis.speak(msg);
-    }catch(e){ }
-  }
-
-  function greet(){
-    playChime();
-    speakGreeting();
-    window.removeEventListener('click', greet);
-    window.removeEventListener('touchstart', greet);
-  }
-
-  window.addEventListener('load', greet);
-  window.addEventListener('click', greet, { once:true });
-  window.addEventListener('touchstart', greet, { once:true });
-
-  setTimeout(function(){
-    const el = document.getElementById('welcome-overlay');
-    if(el) el.style.display = 'none';
-  }, 2300);
-})();
-
-function initDynamicLightbox(){
-  const items = Array.from(document.querySelectorAll('.gallery-item'));
-  if(!items.length) return;
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lb-img');
-  let current = 0;
-
-  function open(index){
-    current = index;
-    show();
-    lightbox.classList.add('open');
-  }
-  function show(){
-    const src = items[current].getAttribute('data-full');
-    lbImg.src = src;
-    lbImg.onerror = function(){ lbImg.alt = 'تعذر تحميل الصورة'; };
-  }
-  function close(){ lightbox.classList.remove('open'); lbImg.src=''; }
-  function next(){ current = (current + 1) % items.length; show(); }
-  function prev(){ current = (current - 1 + items.length) % items.length; show(); }
-
-  items.forEach((el, i) => {
-    el.addEventListener('click', () => open(i));
-  });
-
-  const lbClose = document.getElementById('lb-close');
-  const lbNext = document.getElementById('lb-next');
-  const lbPrev = document.getElementById('lb-prev');
-  
-  const newClose = lbClose.cloneNode(true); lbClose.parentNode.replaceChild(newClose, lbClose);
-  const newNext = lbNext.cloneNode(true); lbNext.parentNode.replaceChild(newNext, lbNext);
-  const newPrev = lbPrev.cloneNode(true); lbPrev.parentNode.replaceChild(newPrev, lbPrev);
-
-  newClose.addEventListener('click', close);
-  newNext.addEventListener('click', next);
-  newPrev.addEventListener('click', prev);
-  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
-}
-
-window.addEventListener('DOMContentLoaded', initDynamicLightbox);
-
-(function(){
-  const form = document.getElementById('order-form');
-  if(!form) return;
-  const WHATSAPP_NUMBER = '9647830790441'; 
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const name = document.getElementById('of-name').value.trim();
-    const phone = document.getElementById('of-phone').value.trim();
-    const address = document.getElementById('of-address').value.trim();
-    const typeSelect = document.getElementById('of-type');
-    const type = typeSelect.options[typeSelect.selectedIndex].value;
-
-    const message =
-      'طلب جديد من موقع منحل أبو عبد الرزاق' + '\n' +
-      '——————————' + '\n' +
-      'الاسم: ' + name + '\n' +
-      'رقم الهاتف: ' + phone + '\n' +
-      'العنوان: ' + address + '\n' +
-      'نوع الطلب: ' + type;
-
-    const encoded = encodeURIComponent(message);
-    const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encoded;
-
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(message).catch(function(){});
+      alert("تمت عملية الرفع بنجاح!");
     }
 
-    window.open(waUrl, '_blank');
-    form.reset();
-  });
-})();
-</script>
+    async function deleteImage(id) {
+      if (!confirm("هل أنت تأكد من حذف هذه الصورة؟")) return;
 
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          action: "delete",
+          username: currentUser,
+          password: currentPass,
+          id: id
+        })
+      });
+      const result = await res.json();
+
+      if (result.status === "success") {
+        loadImages();
+      } else {
+        alert("فشل الحذف!");
+      }
+    }
+
+    // تحميل الصور عند البداية
+    loadImages();
+  </script>
 </body>
 </html>
