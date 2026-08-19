@@ -369,12 +369,9 @@
       <div class="kicker">من قلب المنحل</div>
       <h2>معرض الصور</h2>
     </div>
-    <!-- سيتم عرض الصور المرفوعة من Google Drive هنا بالإضافة للصور المحلية -->
+    <!-- المعرض الآن فارغ وسيعرض فقط الصور القادمة من درايف -->
     <div class="gallery-grid" id="gallery-grid">
-      <div class="gallery-item" data-full="121168.jpg"><img src="121168.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
-      <div class="gallery-item" data-full="121160.jpg"><img src="121160.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
-      <div class="gallery-item" data-full="121156.jpg"><img src="121156.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
-      <div class="gallery-item" data-full="121171.jpg"><img src="121171.jpg" alt="منحل أبو عبد الرزاق" loading="lazy"></div>
+      <p id="loading-msg" style="grid-column: 1 / -1; text-align: center; color: var(--honey-dark); font-weight: bold; font-size: 1.1rem;">جاري تحميل صور المنحل...</p>
     </div>
   </div>
 </section>
@@ -464,10 +461,8 @@ function loginAdmin() {
   const user = document.getElementById('admin-user').value.trim();
   const pass = document.getElementById('admin-pass').value.trim();
 
-  // التحقق البسيط قبل الإرسال للسيرفر
   if (!user || !pass) return alert("يرجى إدخال اسم المستخدم وكلمة المرور");
 
-  // حفظ البيانات لاستخدامها مع كل عملية رفع
   savedUser = user;
   savedPass = pass;
 
@@ -507,13 +502,17 @@ function uploadToDrive() {
 
     fetch(SCRIPT_URL, {
       method: 'POST',
+      redirect: 'follow', 
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8' 
+      },
       body: JSON.stringify(payload)
     })
     .then(res => res.json())
     .then(data => {
       if (data.status === "success") {
         alert("تم رفع الصورة وإضافتها للمعرض بنجاح!");
-        location.reload(); // تحديث الصفحة لرؤية الصورة الجديدة
+        location.reload(); 
       } else {
         alert("فشل الرفع: تأكد من كلمة المرور واسم المستخدم أو صلاحيات جوجل سكربت. \nرسالة الخطأ: " + data.message);
         btn.innerText = "رفع الصورة الآن";
@@ -534,15 +533,17 @@ function loadDriveGallery() {
   fetch(SCRIPT_URL)
     .then(res => res.json())
     .then(data => {
-      if (data.status === "success" && data.images) {
-        const grid = document.getElementById('gallery-grid');
+      const grid = document.getElementById('gallery-grid');
+      const loadingMsg = document.getElementById('loading-msg');
+      if (loadingMsg) loadingMsg.remove(); // إزالة رسالة التحميل
+
+      if (data.status === "success" && data.images && data.images.length > 0) {
         data.images.forEach(img => {
           const newItem = document.createElement('div');
           newItem.className = 'gallery-item';
           newItem.setAttribute('data-full', img.url);
           newItem.innerHTML = `<img src="${img.url}" alt="منحل أبو عبد الرزاق" loading="lazy">`;
           
-          // إضافة تفاعل التكبير للصورة الجديدة
           newItem.addEventListener('click', () => {
             const lbImg = document.getElementById('lb-img');
             const lightbox = document.getElementById('lightbox');
@@ -552,21 +553,30 @@ function loadDriveGallery() {
             }
           });
 
-          // وضع الصور الجديدة في بداية المعرض
+          // إضافة الصور الجديدة للشبكة
           grid.prepend(newItem);
         });
         
-        // إعادة تعريف متغيرات الصور المكبرة لتشمل الصور الجديدة
         initDynamicLightbox();
+      } else {
+        // إذا لم يكن هناك صور في المجلد
+        grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #5a4530;">لم يتم رفع أي صور حتى الآن. سيتم عرض الصور هنا فور رفعها من لوحة التحكم.</p>';
       }
     })
-    .catch(err => console.log("ملاحظة: تعذر جلب صور درايف، قد يكون المجلد فارغاً أو هناك خطأ:", err));
+    .catch(err => {
+      const loadingMsg = document.getElementById('loading-msg');
+      if (loadingMsg) {
+         loadingMsg.innerText = "حدث خطأ أثناء جلب الصور. يرجى المحاولة لاحقاً.";
+         loadingMsg.style.color = "#c9302c";
+      }
+      console.log("خطأ في جلب الصور:", err);
+    });
 }
 
 window.addEventListener('DOMContentLoaded', loadDriveGallery);
 
 
-// --- سكريبتات الموقع الأساسية (التفاعل، المعرض الأساسي، إرسال الواتساب، والترحيب) ---
+// --- سكريبتات الموقع الأساسية ---
 
 (function(){
   function playChime(){
@@ -621,7 +631,6 @@ window.addEventListener('DOMContentLoaded', loadDriveGallery);
   }, 2300);
 })();
 
-// دالة تفاعل المعرض (Lightbox) المحدثة لتدعم الصور المرفوعة
 function initDynamicLightbox(){
   const items = Array.from(document.querySelectorAll('.gallery-item'));
   if(!items.length) return;
@@ -643,7 +652,6 @@ function initDynamicLightbox(){
   function next(){ current = (current + 1) % items.length; show(); }
   function prev(){ current = (current - 1 + items.length) % items.length; show(); }
 
-  // مسح الأحداث القديمة لتجنب التكرار ثم إضافتها من جديد
   items.forEach((el, i) => {
     const newEl = el.cloneNode(true);
     el.parentNode.replaceChild(newEl, el);
@@ -654,7 +662,6 @@ function initDynamicLightbox(){
   const lbNext = document.getElementById('lb-next');
   const lbPrev = document.getElementById('lb-prev');
   
-  // استنساخ أزرار التحكم لمسح الأحداث القديمة وإضافة الجديدة بشكل نظيف
   const newClose = lbClose.cloneNode(true); lbClose.parentNode.replaceChild(newClose, lbClose);
   const newNext = lbNext.cloneNode(true); lbNext.parentNode.replaceChild(newNext, lbNext);
   const newPrev = lbPrev.cloneNode(true); lbPrev.parentNode.replaceChild(newPrev, lbPrev);
@@ -665,10 +672,8 @@ function initDynamicLightbox(){
   lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
 }
 
-// تهيئة المعرض الأولي
 window.addEventListener('DOMContentLoaded', initDynamicLightbox);
 
-// فورم الواتساب
 (function(){
   const form = document.getElementById('order-form');
   if(!form) return;
